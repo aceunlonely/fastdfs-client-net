@@ -94,10 +94,19 @@ namespace fastdfs_client_net.fastdfs
 			//连接
 			Connection connection = ConnectionManager.GetStorageConnection(iPEnd);
 
+            //扩展名
+            //byte[] extBuffer = new byte[Consts.FDFS_FILE_EXT_NAME_MAX_LEN];
+            //byte[] bse = Helper.StringToByte(ext);
+            //int ext_name_len = bse.Length;
+            //if (ext_name_len > Consts.FDFS_FILE_EXT_NAME_MAX_LEN)
+            //{
+            //    ext_name_len = Consts.FDFS_FILE_EXT_NAME_MAX_LEN;
+            //}
+            //Array.Copy(bse, 0, extBuffer, 0, ext_name_len);
+
 			//请求头和体
 			int[] lengthes = new int[] { 1, Consts.FDFS_PROTO_PKG_LEN_SIZE, Consts.FDFS_FILE_EXT_NAME_MAX_LEN,content.Length };
-			IList<byte[]> contents = new byte[][] { new byte[] { storePathIndex }
-				, Helper.LongToBuffer(fileSize),Helper.StringToByte(ext), content };
+            IList<byte[]> contents = new byte[][] { new byte[] { storePathIndex }, Helper.LongToBuffer(fileSize), Helper.StringToByte(ext), content };
 			Request req = new Request();
 			req.SetBody(lengthes, contents);
 			req.Header = new Header(lengthes.Sum(), Consts.STORAGE_PROTO_CMD_UPLOAD_FILE, 0);

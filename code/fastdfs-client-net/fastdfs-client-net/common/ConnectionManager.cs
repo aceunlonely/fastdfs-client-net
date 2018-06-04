@@ -25,7 +25,7 @@ namespace fastdfs_client_net.common
 		/// </summary>
 		/// <param name="trackers">trackers</param>
 		/// <returns></returns>
-		static bool Initialize(List<IPEndPoint> trackers)
+		public static bool Initialize(List<IPEndPoint> trackers)
 		{
 			foreach (IPEndPoint point in trackers)
 			{
