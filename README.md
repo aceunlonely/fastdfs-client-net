@@ -23,33 +23,29 @@ fastdfs-client-net 命名参考了余大的命名方式
 
 ## how to use
 add configs to appSetting or web.config
-`
-<appSettings>
-    <add key="fastdfs_Nodes" value="192.168.12.7:22122,192.168.12.8"/>
-    <add key="fastdfs_GroupName" value="group1"/>
-    <add key="fastdfs_DownloadUrl" value="http://192.168.xx.xx:8080/group1/" />
-</appSettings>
-`
+    <appSettings>
+        <add key="fastdfs_Nodes" value="192.168.12.7:22122,192.168.12.8"/>
+        <add key="fastdfs_GroupName" value="group1"/>
+        <add key="fastdfs_DownloadUrl" value="http://192.168.xx.xx:8080/group1/" />
+    </appSettings>
+
 
 code like:
-`
-//upload
-string serverFileName = fastdfs_client_net.Facade.Upload("D:/xxxx.xls");
-//download
-fastdfs_client_net.Facade.DownLoad("M00/00/00/wKgMyli04auAdI0FAAASAFMyJ8E647.xls", "D:/xxx/target.xls", true);
-`
+    //upload
+    string serverFileName = fastdfs_client_net.Facade.Upload("D:/xxxx.xls");
+    //download
+    fastdfs_client_net.Facade.DownLoad("M00/00/00/wKgMyli04auAdI0FAAASAFMyJ8E647.xls", "D:/xxx/target.xls", true);
+
 
 ## 客户端错误日志，及元数据日志
 可通过fastdfs_LogPath 配置日志路径，详细见类：FDFSConfig
 日志默认路径为程序目录下：FileServerLogs
 日志支持归档，采用zip压缩，最大归档大小为50M
 日志记录like：
-`
-[时间：2018-06-04 16:14:07级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/39/wKgMB1sU9dqAE0x6AADGAKB9VCU109.xls|UPLOAD
-[时间：2018-06-04 16:14:07级别：INFO 日志内容]：M00/01/39/wKgMB1sU9dqAE0x6AADGAKB9VCU109.xls||第1次下载|E:/temp/t10159.xls|DOWNLOAD
-[时间：2018-06-04 16:14:07级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/5A/wKgMCFsU9dqAK7coAADGAKB9VCU596.xls|UPLOAD
-[时间：2018-06-04 16:14:07级别：INFO 日志内容]：M00/01/5A/wKgMCFsU9dqAK7coAADGAKB9VCU596.xls||第1次下载|E:/temp/t10160.xls|DOWNLOAD
-[时间：2018-06-04 16:14:08级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/39/wKgMB1sU9dqAWaE-AADGAKB9VCU194.xls|UPLOAD
-[时间：2018-06-04 16:14:08级别：INFO 日志内容]：M00/01/39/wKgMB1sU9dqAWaE-AADGAKB9VCU194.xls||第1次下载|E:/temp/t10161.xls|DOWNLOAD
-[时间：2018-06-04 16:14:08级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/5A/wKgMCFsU9dqAWYSDAADGAKB9VCU316.xls|UPLOAD
-`
+    [时间：2018-06-04 16:14:07级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/39/wKgMB1sU9dqAE0x6AADGAKB9VCU109.xls|UPLOAD
+    [时间：2018-06-04 16:14:07级别：INFO 日志内容]：M00/01/39/wKgMB1sU9dqAE0x6AADGAKB9VCU109.xls||第1次下载|E:/temp/t10159.xls|DOWNLOAD
+    [时间：2018-06-04 16:14:07级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/5A/wKgMCFsU9dqAK7coAADGAKB9VCU596.xls|UPLOAD
+    [时间：2018-06-04 16:14:07级别：INFO 日志内容]：M00/01/5A/wKgMCFsU9dqAK7coAADGAKB9VCU596.xls||第1次下载|E:/temp/t10160.xls|DOWNLOAD
+    [时间：2018-06-04 16:14:08级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/39/wKgMB1sU9dqAWaE-AADGAKB9VCU194.xls|UPLOAD
+    [时间：2018-06-04 16:14:08级别：INFO 日志内容]：M00/01/39/wKgMB1sU9dqAWaE-AADGAKB9VCU194.xls||第1次下载|E:/temp/t10161.xls|DOWNLOAD
+    [时间：2018-06-04 16:14:08级别：INFO 日志内容]：D:/temp.xls|50688||M00/01/5A/wKgMCFsU9dqAWYSDAADGAKB9VCU316.xls|UPLOAD
